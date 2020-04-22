@@ -1,0 +1,29 @@
+% !TEX program = xelatex
+
+% Author: Alexandr Korotkov
+% https://github.com/ASKAlexAndr/bachelor-diploma
+
+\documentclass[xetex,a4paper,12pt]{extarticle} % 12й шрифт
+\input{preamble} % Подключаем преамбулу
+
+\begin{document}
+\includepdf{extra/front.pdf}
+\tableofcontents % Содержание 
+\clearpage
+\input{inc/intro.tex}
+
+% \input{inc/bibliography} % Список источников
+\nocite{*}
+\printbibliography
+% Список иллюстративного материала
+\lof
+\clearpage
+
+% Список табличного материала
+\lot
+\clearpage
+
+% Приложения
+
+
+\end{document}
