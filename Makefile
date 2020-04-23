@@ -6,7 +6,7 @@ build:
 	latexmk -xelatex -synctex=1 -jobname=diploma main.tex
 
 run:
-	evince diploma.pdf
+	chrome diploma.pdf
 
 clean:
 	rm *.aux \
