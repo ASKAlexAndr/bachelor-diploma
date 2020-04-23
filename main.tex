@@ -3,27 +3,44 @@
 % Author: Alexandr Korotkov
 % https://github.com/ASKAlexAndr/bachelor-diploma
 
-\documentclass[xetex,a4paper,12pt]{extarticle} % 12й шрифт
+\documentclass[xetex,a4paper,12pt]{extarticle} % 14й шрифт
 \input{preamble} % Подключаем преамбулу
 
 \begin{document}
+
 \includepdf{extra/front.pdf}
+\input{diploma/synopsis.tex}
+
 \tableofcontents % Содержание 
 \clearpage
-\input{inc/intro.tex}
+
+\input{diploma/intro.tex}
+\input{diploma/1-theme-review.tex}
+\input{diploma/2-problem.tex}
+\input{diploma/3-system-design.tex}
+\input{diploma/4-development.tex}
+\input{diploma/5-example.tex}
+\input{diploma/6-analysis.tex}
+\input{diploma/conclusion.tex}
+
 
 % \input{inc/bibliography} % Список источников
 \nocite{*}
-\printbibliography
+\clearpage
+
+\anonsection{Список литературы}
+\printbibliography[heading=none]
+\clearpage
+
 % Список иллюстративного материала
 \lof
 \clearpage
 
-% Список табличного материала
-\lot
-\clearpage
+% % Список табличного материала
+% \lot
+% \clearpage
 
 % Приложения
-
+\input{diploma/app.tex}
 
 \end{document}
