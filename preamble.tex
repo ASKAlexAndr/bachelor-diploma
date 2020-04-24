@@ -48,8 +48,8 @@
 \usepackage{chngcntr}
 
 % Сбрасываем счетчик таблиц и рисунков в каждой новой главе
-% \counterwithin{figure}{section}
-% \counterwithin{table}{section}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
 
 % Гиперссылки
 \usepackage{hyperref}
@@ -105,12 +105,12 @@
 \setcounter{tocdepth}{3}                            % Глубина оглавления, до subsubsection
 
 % Список иллюстративного материала
-\renewcommand{\cftloftitlefont}{\hspace{0.17\textwidth}\MakeTextUppercase}
+\renewcommand{\cftloftitlefont}{\bfseries\hspace{0.17\textwidth}\MakeTextUppercase}
 \renewcommand{\cftfigfont}{Рисунок }
 \addto\captionsrussian{\renewcommand\listfigurename{Список иллюстративного материала}}
 
 % Список табличного материала
-\renewcommand{\cftlottitlefont}{\hspace{0.2\textwidth}\MakeTextUppercase}
+\renewcommand{\cftlottitlefont}{\bfseries\hspace{0.2\textwidth}\MakeTextUppercase}
 \renewcommand{\cfttabfont}{Таблица }
 \addto\captionsrussian{\renewcommand\listtablename{Список табличного материала}}
 
@@ -166,28 +166,28 @@
 
 % Оформление заголовков
 \usepackage[compact,explicit]{titlesec}
-\titleformat{\section}{}{}{12.5mm}{\centering{\thesection\quad\MakeTextUppercase{#1}}\vspace{1.5em}}
-\titleformat{\subsection}[block]{\vspace{1em}}{}{12.5mm}{\thesubsection\quad#1\vspace{1em}}
-\titleformat{\subsubsection}[block]{\vspace{1em}\normalsize}{}{12.5mm}{\thesubsubsection\quad#1\vspace{1em}}
+\titleformat{\section}{}{}{12.5mm}{\bfseries\centering{\thesection\quad\MakeTextUppercase{#1}}\vspace{1.5em}}
+\titleformat{\subsection}[block]{\bfseries\vspace{1em}}{}{12.5mm}{\thesubsection\quad#1\vspace{1em}}
+\titleformat{\subsubsection}[block]{\bfseries\vspace{1em}\normalsize}{}{12.5mm}{\thesubsubsection\quad#1\vspace{1em}}
 \titleformat{\paragraph}[block]{\normalsize}{}{12.5mm}{\MakeTextUppercase{#1}}
 
 % Секции без номеров (введение, заключение...), вместо section*{}
 \newcommand{\anonsection}[1]{
     \phantomsection % Корректный переход по ссылкам в содержании
-    \paragraph{\centerline{{#1}}\vspace{1em}}
+    \paragraph{\bfseries\centerline{{#1}}\vspace{1em}}
     \addcontentsline{toc}{section}{#1}
 }
 
 
 % Секция для аннотации (она не включается в содержание)
 \newcommand{\annotation}[1]{
-    \paragraph{\centerline{{#1}}\vspace{1em}}
+    \paragraph{\bfseries\centerline{{#1}}\vspace{1em}}
 }
 
 % Секция для списка иллюстративного материала
 \newcommand{\lof}{
     \phantomsection
-    \listoffigures
+    \listoffigures    
     \addcontentsline{toc}{section}{\listfigurename}
 }
 
@@ -201,7 +201,7 @@
 % Секции для приложений
 \newcommand{\appsection}[1]{
     \phantomsection
-    \paragraph{\centerline{{#1}}}
+    \paragraph{\bfseries\centerline{{#1}}}
     \addcontentsline{toc}{section}{{#1}}
 }
 
@@ -215,6 +215,7 @@
 % \usepackage{lastbib} % Кол-во источников
 
 \usepackage{totcount}
+\usepackage[figure]{totalcount}
 
 \newtotcounter{citnum} %% Счётчик библиографии
 \AtEveryBibitem{\stepcounter{citnum}}
