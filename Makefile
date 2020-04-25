@@ -3,10 +3,10 @@ all: build run
 build:
 	git submodule init
 	git submodule update --remote
-	latexmk -xelatex -synctex=1 -jobname=diploma main.tex
+	latexmk -xelatex -synctex=1 -jobname=thesis main.tex
 
 run:
-	chrome diploma.pdf
+	chrome thesis.pdf
 
 clean:
 	rm *.aux \
