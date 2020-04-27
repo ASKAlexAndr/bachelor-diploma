@@ -178,7 +178,6 @@
     \addcontentsline{toc}{section}{#1}
 }
 
-
 % Секция для аннотации (она не включается в содержание)
 \newcommand{\annotation}[1]{
     \paragraph{\bfseries\centerline{{#1}}\vspace{1em}}
@@ -233,6 +232,14 @@
 
 % Графики и таблицы
 \usepackage{tikz}
+\usepackage{pgfplots}
 
 \usepackage{array, makecell}
 \usepackage{xfrac}
+
+% Нейросети
+\usepackage{neuralnetwork}
+
+\newcommand{\x}[2]{$x_#2$}
+\newcommand{\y}[2]{$\hat{y}_#2$}
+\newcommand{\hfirst}[2]{\small $h_#2$}
