@@ -1,12 +1,19 @@
+\pgfplotsset{
+  every axis plot/.append style={
+    line width=3pt
+  }
+}
+
 \begin{table}[H]
+  \centering
   \caption{Нелинейные активационные функции}\label{actvs}
   \begin{tabular}{|c|c|c|}
     \hline    
     \hyperlink{name}{Название} & \hyperlink{func}{Функция} & \hyperlink{chart}{Вид}\\
     \hline
-    Сигмоидная & $\sigma(x)=\frac{1}{1+e^{-x}}$ 
+    Сигмоидная &  \resizebox{0.2\hsize}{!}{$\sigma(x)=\frac{1}{1+e^{-x}}$}
     & 
-    \begin{tikzpicture}[baseline={(0,0.7)}, scale=0.5]      
+    \begin{tikzpicture}[baseline={(0,0.8)}, scale=0.6]      
       \begin{axis}[
         axis equal image,
         axis lines=middle,
@@ -19,7 +26,7 @@
         ytick={0, 1},
         xtick={-1, 0, 1}
         ]
-        \addplot[mark=none,domain=-1:1, variable=\x] ({\x},{1/(1+exp(-4*\x))});
+        \addplot[domain=-1:1, variable=\x] ({\x},{1/(1+exp(-4*\x))});
       \end{axis}      
     \end{tikzpicture}
    
@@ -27,9 +34,9 @@
     \hline
     Гиперболический тангенс 
     &
-    $\tanh(x)=\frac{e^x-e^{-x}}{e^z+e^{-z}}$
+    \resizebox{0.2\hsize}{!}{$f(x)=\frac{e^x-e^{-x}}{e^z+e^{-z}}$}
     & 
-    \begin{tikzpicture}[baseline={(0,1.4)},scale=0.5]
+    \begin{tikzpicture}[baseline={(0,1.5)},scale=0.6]
       \begin{axis}[
         axis equal image,
         axis lines=middle,
@@ -42,16 +49,16 @@
         ytick={-1, 0, 1},
         xtick={-1, 0, 1}
         ]
-        \addplot[mark=none,domain=-1:1, variable=\x]({\x},{tanh(4*\x)});
+        \addplot[domain=-1:1, variable=\x]({\x},{tanh(4*\x)});
       \end{axis}      
     \end{tikzpicture} 
     \\
     \hline
-    ReLU & $f(x) =\begin{cases}
+    ReLU & \resizebox{0.2\hsize}{!}{$f(x) =\begin{cases}
     0 & ~\text{if}~ x<0 \\ 
     x & ~\text{if}~x \geq 0.
-    \end{cases}$ & 
-    \begin{tikzpicture}[baseline={(0,0.7)},scale=0.5]
+    \end{cases}$} & 
+    \begin{tikzpicture}[baseline={(0,0.8)},scale=0.6]
       \begin{axis}[
         axis equal image,
         axis lines=middle,
@@ -64,7 +71,7 @@
         ytick={0, 1},
         xtick={-1, 0, 1}
         ]
-        \addplot[mark=none,domain=-1:1, variable=\x]({\x},{ifthenelse(\x<0,0,\x)});
+        \addplot[domain=-1:1, variable=\x]({\x},{ifthenelse(\x<0,0,\x)});
       \end{axis}      
     \end{tikzpicture}
     \\          
