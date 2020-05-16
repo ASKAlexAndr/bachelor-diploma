@@ -17,4 +17,7 @@ clean:
 	*.log \
 	*.out \
 	*.synctex.gz \
-	*.toc
+	*.toc \
+	*.bbl \
+	*.bcf \
+	*.blg \
