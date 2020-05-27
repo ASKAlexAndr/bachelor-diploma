@@ -98,29 +98,17 @@
 
 % Содержание
 \usepackage{tocloft}
-\renewcommand{\cfttoctitlefont}{\hspace{0.38\textwidth}\MakeTextUppercase} % СОДЕРЖАНИЕ
-\renewcommand{\cftsecfont}{\hspace{0pt}}            % Имена секций в содержании не жирным шрифтом
-\renewcommand\cftsecleader{\cftdotfill{\cftdotsep}} % Точки для секций в содержании
-\renewcommand\cftsecpagefont{\mdseries}             % Номера страниц не жирные
+\renewcommand{\cfttoctitlefont}{\hspace{0.38\textwidth\bfseries}} % СОДЕРЖАНИЕ
 \setcounter{tocdepth}{3}                            % Глубина оглавления, до subsubsection
-
-% Список иллюстративного материала
-\renewcommand{\cftloftitlefont}{\bfseries\hspace{0.17\textwidth}\MakeTextUppercase}
-\renewcommand{\cftfigfont}{Рисунок }
-\addto\captionsrussian{\renewcommand\listfigurename{Список иллюстративного материала}}
-
-% Список табличного материала
-\renewcommand{\cftlottitlefont}{\bfseries\hspace{0.2\textwidth}\MakeTextUppercase}
-\renewcommand{\cfttabfont}{Таблица }
-\addto\captionsrussian{\renewcommand\listtablename{Список табличного материала}}
 
 
 % Формат подрисуночных надписей
 \RequirePackage{caption}
 \DeclareCaptionLabelSeparator{defffis}{ -- } % Разделитель
-\captionsetup[figure]{justification=centering, labelsep=defffis, format=plain} % Подпись рисунка по центру
-\captionsetup[table]{justification=raggedright, labelsep=defffis, format=plain, singlelinecheck=false} % Подпись таблицы слева
-\addto\captionsrussian{\renewcommand{\figurename}{Рисунок}} % Имя фигуры
+\DeclareCaptionLabelFormat{rtable}{\hfill #1~#2}
+\captionsetup[figure]{justification=centering, figurewithin=none, labelsep=defffis, labelfont=bf, format=plain} % Подпись рисунка по центру
+\captionsetup[table]{justification=centerlast, labelsep=newline, textfont=bf, labelformat=rtable, format=hang, position=above, margin=0em} 
+\addto\captionsrussian{\renewcommand{\figurename}{Рис.}} % Имя фигуры
 
 
 % Пользовательские функции
@@ -159,48 +147,35 @@
     \else
         \expandafter\@secondoftwo
     \fi
-    {\oldcontentsline{#1}{\MakeTextUppercase{#2}}}
+    {\oldcontentsline{#1}{#2}}
     {\oldcontentsline{#1}{#2}}
 }
 \makeatother
 
 % Оформление заголовков
 \usepackage[compact,explicit]{titlesec}
-\titleformat{\section}{}{}{12.5mm}{\bfseries\centering{\thesection\quad\MakeTextUppercase{#1}}\vspace{1.5em}}
-\titleformat{\subsection}[block]{\bfseries\vspace{1em}}{}{12.5mm}{\thesubsection\quad#1\vspace{1em}}
-\titleformat{\subsubsection}[block]{\bfseries\vspace{1em}\normalsize}{}{12.5mm}{\thesubsubsection\quad#1\vspace{1em}}
-\titleformat{\paragraph}[block]{\normalsize}{}{12.5mm}{\MakeTextUppercase{#1}}
+\titleformat{\section}{}{}{12.5mm}{\bfseries\centering{\thesection\qquad{#1}}\vspace{1.5em}}
+\titleformat{\subsection}[block]{\bfseries\centering\vspace{1em}}{}{12.5mm}{\thesubsection\quad#1\vspace{1em}}
+\titleformat{\subsubsection}[block]{\bfseries\centering\vspace{1em}\normalsize}{}{12.5mm}{\thesubsubsection\quad#1\vspace{1em}}
+\titleformat{\paragraph}[block]{\normalsize\centering}{}{12.5mm}{#1}
 
 % Секции без номеров (введение, заключение...), вместо section*{}
 \newcommand{\anonsection}[1]{
     \phantomsection % Корректный переход по ссылкам в содержании
-    \paragraph{\bfseries\centerline{{#1}}\vspace{1em}}
+    \paragraph{\bfseries{{#1}}\vspace{1em}}
     \addcontentsline{toc}{section}{#1}
 }
 
 % Секция для аннотации (она не включается в содержание)
 \newcommand{\annotation}[1]{
-    \paragraph{\bfseries\centerline{{#1}}\vspace{1em}}
+    \paragraph{\bfseries{{#1}}\vspace{1em}}
 }
 
-% Секция для списка иллюстративного материала
-\newcommand{\lof}{
-    \phantomsection
-    \listoffigures    
-    \addcontentsline{toc}{section}{\listfigurename}
-}
-
-% Секция для списка табличного материала
-\newcommand{\lot}{
-    \phantomsection
-    \listoftables
-    \addcontentsline{toc}{section}{\listtablename}
-}
 
 % Секции для приложений
 \newcommand{\appsection}[1]{
     \phantomsection
-    \paragraph{\bfseries\centerline{{#1}}}
+    \paragraph{\bfseries{{#1}}}
     \addcontentsline{toc}{section}{{#1}}
 }
 
