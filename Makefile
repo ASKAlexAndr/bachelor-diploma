@@ -21,3 +21,6 @@ clean:
 	*.bbl \
 	*.bcf \
 	*.blg \
+
+pres:
+	make -C presentation run
