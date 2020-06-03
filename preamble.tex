@@ -93,7 +93,8 @@
 
 % Содержание
 \usepackage{tocloft}
-\renewcommand{\cfttoctitlefont}{\hspace{0.38\textwidth\bfseries}} % СОДЕРЖАНИЕ
+\renewcommand{\cfttoctitlefont}{\hspace*{\fill}\bfseries}
+\renewcommand{\cftaftertoctitle}{\hspace*{\fill}}
 \setcounter{tocdepth}{3}                            % Глубина оглавления, до subsubsection
 
 
@@ -148,15 +149,10 @@
 
 % Оформление заголовков
 \usepackage[compact, explicit]{titlesec}
-% \titleformat{\section}{}{}{12.5mm}{\bfseries\centering{\thesection\qquad{#1}}\vspace{1.5em}}
-% \titleformat{\subsection}[block]{\bfseries\centering\vspace{1em}}{}{12.5mm}{\thesubsection\quad#1\vspace{1em}}
-% \titleformat{\subsubsection}[block]{\bfseries\centering\vspace{1em}\normalsize}{}{12.5mm}{\thesubsubsection\quad#1\vspace{1em}}
-% \titleformat{\paragraph}[block]{\normalsize\centering}{}{12.5mm}{#1}
-\titleformat{\section}{}{}{12.5mm}{\bfseries{\thesection\qquad{#1}}\vspace{1.5em}}
-\titleformat{\subsection}[block]{\bfseries\vspace{1em}}{}{12.5mm}{\thesubsection\quad#1\vspace{1em}}
-\titleformat{\subsubsection}[block]{\bfseries\vspace{1em}\normalsize}{}{12.5mm}{\thesubsubsection\quad#1\vspace{1em}}
-\titleformat{\paragraph}[block]{\normalsize}{}{12.5mm}{{#1}}
-\titlespacing{\paragraph}{1.27cm}{3.25ex plus 1ex}{1em}
+\titleformat{\section}{}{}{12.5mm}{\bfseries\centering{\thesection\quad{#1}}\vspace{1.5em}}
+\titleformat{\subsection}[block]{\bfseries\centering\vspace{1em}}{}{12.5mm}{\thesubsection\quad#1\vspace{1em}}
+\titleformat{\subsubsection}[block]{\bfseries\centering\vspace{1em}\normalsize}{}{12.5mm}{\thesubsubsection\quad#1\vspace{1em}}
+\titleformat{\paragraph}[block]{\normalsize\centering}{}{12.5mm}{#1}
 % Секции без номеров (введение, заключение...), вместо section*{}
 \newcommand{\anonsection}[1]{
     \phantomsection % Корректный переход по ссылкам в содержании

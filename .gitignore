@@ -16,3 +16,8 @@
 *.blg
 *.xdv
 *.xml
+
+ocular-recognition/kernel-metadata.json
+ocular-recognition/input
+
+venv
