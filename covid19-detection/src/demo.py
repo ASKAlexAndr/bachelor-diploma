@@ -16,9 +16,9 @@ import keras.callbacks as kcall
 # In[ ]:
 
 
-train_dir = '../input/chestx-ray14-v3/train/'
-test_dir = '../input/chestx-ray14-v3/test'
-val_dir = '../input/chestx-ray14-v3/val/'
+train_dir = '../input/train/'
+test_dir = '../input/test/'
+
 labels = ['pneumonia', 'COVID-19', 'normal']
 image_shape = (1024, 1024)
 color_mode = 'grayscale'

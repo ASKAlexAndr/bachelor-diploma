@@ -106,7 +106,6 @@
 \captionsetup[table]{justification=centerlast, labelsep=newline, textfont=bf, labelformat=rtable, format=hang, position=above, margin=0em} 
 \addto\captionsrussian{\renewcommand{\figurename}{Рис.}} % Имя фигуры
 
-% Пользовательские функции
 \newcommand{\addimg}[4]{ % Добавление одного рисунка
     \begin{figure}
         \centering
@@ -128,6 +127,19 @@
         \hfill
         \includegraphics[width=#3\linewidth]{#2}
         \caption{#4} \label{#5}
+    \end{figure}
+}
+\usepackage[labelformat=simple, labelsep=period]{subcaption}
+\newcommand{\addthreeimghere}[8]{ % Вставка трех рисунков
+    \begin{figure}[H]   
+        \centering    
+        \subcaptionbox{#2}{\includegraphics[width=.3\textwidth]{#1}}   
+        % \hfill
+        \subcaptionbox{#4}{\includegraphics[width=.3\textwidth]{#3}}
+        % \hfill
+        \subcaptionbox{#6}{\includegraphics[width=.3\textwidth]{#5}}
+        \caption{#7}
+        \label{#8}
     \end{figure}
 }
 
