@@ -1,0 +1,44 @@
+\begin{figure}[H]
+\centering
+    \begin{tikzpicture}
+        \tikzset{
+            connector/.style={
+            -latex,
+            font=\scriptsize
+            },
+            rectangle connector/.style={
+                connector,
+                to path={(\tikztostart) -- ++(#1,0pt) \tikztonodes |- (\tikztotarget) },
+                pos=0.5
+            },
+            rectangle connector/.default=-2cm,
+            straight connector/.style={
+                connector,
+                to path=--(\tikztotarget) \tikztonodes
+            }
+        }
+        [align=center]
+        \tikzstyle{rectangle_style}=[rectangle, draw, minimum height = 15mm, minimum width = 10mm]
+        \tikzstyle{arrow} = [thick,->,>=stealth]
+        \node (in) at (0,.3) [] {};
+        \node (midin) at (0,-0.6) [] {};
+        \node (cv3_1) at (0,-2) [rectangle_style] {Conv 3x3};
+        \node (relu2) at (-0.8,-3.5) [] {$ReLU$};
+        \node (cv3_2) at (0,-5) [rectangle_style] {Conv 3x3};
+        \node (plus) at (0,-7) [circle, draw] {+};
+        \node (out) at (0,-8.5) [] {};
+        \node (x) at (0,.5) [] {$x$};
+        \node (x2) at (-2.5,-4) [] {$x$};
+        \node (f_x) at (2,-4) [] {$F(x)$};
+        \node (H_x) at (1.5,-7) [] {$F(x)+x$};
+        \node (relu2) at (- 0.8,-8) [] {$ReLU$};
+
+        \draw [arrow, rectangle connector] (midin) to  node[] {} (plus);
+        \draw [arrow] (in) -- (cv3_1);
+        \draw [arrow] (cv3_1) -- (cv3_2);
+        \draw [arrow] (cv3_2) -- (plus);
+        \draw [arrow] (plus) -- (out);
+
+    \end{tikzpicture}
+\caption{Блок остаточной сети} \label{res-net}
+\end{figure}

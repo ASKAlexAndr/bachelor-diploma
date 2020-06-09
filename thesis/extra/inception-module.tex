@@ -1,0 +1,31 @@
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        [align=center]
+        \tikzstyle{rectangle_style}=[rectangle, draw, minimum height = 15mm, minimum width = 10mm]
+        \tikzstyle{arrow} = [thick,->,>=stealth]
+        \node (in) at (0,0) [rectangle_style] {Предыдущий слой};
+        \node (cv1_1) at (-1.5,-2.5) [rectangle_style] {Conv 1x1};
+        \node (cv3_1) at (-1.5,-5) [rectangle_style] {Conv 3x3};
+        \node (cv1_2) at (2.0, -2.5) [rectangle_style] {Conv 1x1};
+        \node (cv5_1) at (2.0,-5) [rectangle_style] {Conv 5x5};
+        \node (mp_1)  at (5,-2.5) [rectangle_style] {Maxpool\\3x3};
+        \node (cv1_3) at (5,-5) [rectangle_style] {Conv 1x1};
+        \node (cv1_0) at (-5.5, -3.75) [rectangle_style] {Conv 1x1};
+        \node (out) at (0,-7.5) [rectangle_style] {Объединение фильтров};
+
+        \draw [arrow] (in) -- (cv1_1);
+        \draw [arrow] (in) -- (cv1_2);
+        \draw [arrow] (in) -- (cv1_0);
+        \draw [arrow] (in) -- (mp_1);
+        \draw [arrow] (cv1_1) -- (cv3_1);
+        \draw [arrow] (cv1_2) -- (cv5_1);
+        \draw [arrow] (mp_1) -- (cv1_3);
+        \draw [arrow] (cv1_3) -- (out);
+        \draw [arrow] (cv5_1) -- (out);
+        \draw [arrow] (cv3_1) -- (out);
+        \draw [arrow] (cv1_0) -- (out);
+
+    \end{tikzpicture}
+    \caption{Inception модуль} \label{inception-module}
+\end{figure}
