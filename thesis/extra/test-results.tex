@@ -1,15 +1,15 @@
 \begin{table}[H]
     \centering
     \caption{Результаты экспериментов} \label{test-results}
-    \begin{tabular}{|c|c|}
+    \begin{tabular}{|c|c|c|}
       \hline    
-      \hyperlink{network}{Сеть} & \hyperlink{accuracy}{Точность}\\
+      \hyperlink{network}{Сеть} & \hyperlink{accuracy}{Точность при обучении} & \hyperlink{val_accuracy}{Точность на проверочных данных}\\
       \hline
-      VGG-16 & 0\% \\
+      Inception & 89.93\% & 87.90\% \\
       \hline
-      Inception & 87.08\% \\
+      ResNet & 88.87\% & 73.65\% \\
       \hline
-      ResNet & 0\% \\
+      DenseNet & 89.86\% & 88.54\% \\
       \hline
     \end{tabular}
   \end{table}

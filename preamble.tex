@@ -120,14 +120,15 @@
         \caption{#3} \label{#4}
     \end{figure}
 }
-\newcommand{\addtwoimghere}[5]{ % Вставка двух рисунков
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=#2\linewidth]{#1}
-        \hfill
-        \includegraphics[width=#3\linewidth]{#2}
-        \caption{#4} \label{#5}
-    \end{figure}
+\newcommand{\addtwoimghere}[6]{ % Вставка двух рисунков
+\begin{figure}[H]   
+    \centering    
+    \subcaptionbox{#2}{\includegraphics[width=.49\textwidth]{#1}}   
+    % \hfill
+    \subcaptionbox{#4}{\includegraphics[width=.49\textwidth]{#3}}
+    \caption{#5}
+    \label{#6}
+\end{figure}
 }
 \usepackage[labelformat=simple, labelsep=period]{subcaption}
 \newcommand{\addthreeimghere}[8]{ % Вставка трех рисунков
