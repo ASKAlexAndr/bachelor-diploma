@@ -18,19 +18,19 @@
         ]
     }
 ],
-"latex-workshop.latex.recipes": [
+"latex-workshop.latex.recipes": [  
+    {
+        "name": "xelatex",
+        "tools": [
+            "xelatex",
+        ]
+    },
     {
         "name": "biber -> xelatex*2",
         "tools": [
             "xelatex",
             "biber",
             "xelatex",
-            "xelatex",
-        ]
-    },
-    {
-        "name": "xelatex",
-        "tools": [
             "xelatex",
         ]
     },
