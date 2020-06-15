@@ -1,0 +1,56 @@
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.8,  every node/.style={scale=0.8}]
+
+	\matrix (mtr) [matrix of nodes,row sep=-\pgflinewidth, nodes={draw}]
+	{
+		0 & 1 & 1 & |[fill=red!30]| 1 & |[fill=red!30]| 0 & |[fill=red!30]| 0 & 0\\
+		0 & 0 & 1 & |[fill=red!30]| 1 & |[fill=red!30]| 1 & |[fill=red!30]| 0 & 0\\
+		0 & 0 & 0 & |[fill=red!30]| 1 & |[fill=red!30]| 1 & |[fill=red!30]| 1 & 0\\
+		0 & 0 & 0 & 1 & 1 & 0 & 0\\
+		0 & 0 & 1 & 1 & 0 & 0 & 0\\
+		0 & 1 & 1 & 0 & 0 & 0 & 0\\
+		1 & 1 & 0 & 0 & 0 & 0 & 0\\
+	};
+
+	\draw[very thick, red] (mtr-1-4.north west) rectangle (mtr-3-6.south east);
+
+	\matrix (K) [right=0.2em of mtr,matrix of nodes,row sep=-\pgflinewidth, nodes={draw, fill=blue!30}]
+	{
+		1 & 0 & 1 \\
+		0 & 1 & 0 \\
+		1 & 0 & 1 \\
+	};
+
+	\matrix (ret) [right=0.2em of K,matrix of nodes,row sep=-\pgflinewidth, nodes={draw}]
+	{
+		1 & 4 & 3 & |[fill=green!30]| 4 & 1\\
+		1 & 2 & 4 & 3 & 3\\
+		1 & 2 & 3 & 4 & 1\\
+		1 & 3 & 3 & 1 & 1\\
+		3 & 3 & 1 & 1 & 0\\
+	};
+
+	\draw[very thick, green] (ret-1-4.north west) rectangle (ret-1-4.south east);
+
+	\draw[densely dotted, blue, thick] (mtr-1-4.north west) -- (K-1-1.north west);
+	\draw[densely dotted, blue, thick] (mtr-3-4.south west) -- (K-3-1.south west);
+	\draw[densely dotted, blue, thick] (mtr-1-6.north east) -- (K-1-3.north east);
+	\draw[densely dotted, blue, thick] (mtr-3-6.south east) -- (K-3-3.south east);
+
+	\draw[densely dotted, green, thick] (ret-1-4.north west) -- (K-1-1.north west);
+	\draw[densely dotted, green, thick] (ret-1-4.south west) -- (K-3-1.south west);
+	\draw[densely dotted, green, thick] (ret-1-4.north east) -- (K-1-3.north east);
+	\draw[densely dotted, green, thick] (ret-1-4.south east) -- (K-3-3.south east);
+
+	\matrix (K) [right=0.2em of mtr,matrix of nodes,row sep=-\pgflinewidth, nodes={draw, fill=blue!10}]
+	{
+		1 & 0 & 1 \\
+		0 & 1 & 0 \\
+		1 & 0 & 1 \\
+	};
+
+	\draw[very thick, blue] (K-1-1.north west) rectangle (K-3-3.south east);
+\end{tikzpicture}
+\caption{Операция свертки} \label{convolution}
+\end{figure}

@@ -20,7 +20,7 @@
 %\usetheme{Madrid}
 
 \usepackage{graphicx} % Вставка картинок и дополнений
-\graphicspath{{images/}}
+\graphicspath{{extra/}}
 \usepackage{caption}
 \captionsetup[figure]{labelformat=empty, labelsep=none}
 
@@ -75,3 +75,16 @@
 \usepackage{xfrac}
 \usepackage{multirow}
 
+\usepackage[labelformat=empty, labelsep=none]{subcaption}
+\newcommand{\addthreeimghere}[8]{ % Вставка трех рисунков
+    \begin{figure}[H]   
+        \centering    
+        \subcaptionbox{#2}{\includegraphics[width=.3\textwidth]{#1}}   
+        % \hfill
+        \subcaptionbox{#4}{\includegraphics[width=.3\textwidth]{#3}}
+        % \hfill
+        \subcaptionbox{#6}{\includegraphics[width=.3\textwidth]{#5}}
+        \caption{#7}
+        \label{#8}
+    \end{figure}
+}
