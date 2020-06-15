@@ -19,6 +19,11 @@
 % \usecolortheme{warsaw}
 %\usetheme{Madrid}
 
+\usepackage{graphicx} % Вставка картинок и дополнений
+\graphicspath{{images/}}
+\usepackage{caption}
+\captionsetup[figure]{labelformat=empty, labelsep=none}
+
 \useinnertheme{rounded} % Скругляем углы блоков
 \useoutertheme{infolines} % Добавляем колонтитулы
 \setbeamertemplate{headline}{} % Убираем верхний колонтитул
@@ -58,4 +63,15 @@
 \setbeamertemplate{blocks}[default]
 \setbeamercolor{block title}{bg=}
 \setbeamercolor{block body}{bg=}
+
+% Графики и таблицы
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{matrix, positioning}
+\usepackage{bm}
+\usepackage{relsize}
+
+\usepackage{array, makecell}
+\usepackage{xfrac}
+\usepackage{multirow}
 
