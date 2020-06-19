@@ -1,0 +1,31 @@
+\begin{table}[H]
+    \centering
+    \caption{Результаты обучение моделей со стандартными параметрами \\и предварительным маштабированием изображений} \label{rescale}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|}
+        \hline    
+        Сеть          & loss   & precision & recall & val\_loss & val\_precision & val\_recall \\ % & last\_epoch  \\
+        \hline
+        Inception V3  & 0.3387 & 0.8860    & 0.8697 & 0.5269    & 0.7204         & 0.6700 \\ % & 10 \\
+        \hline
+        ResNet-50     & 0.3242 & 0.8870    & 0.8732 & 0.2373    & 0.7354         & 0.7133 \\ % & 8  \\
+        \hline
+        % DenseNet-201  & 0.3655 & 0.8742    & 0.8622 & 0.3539    & 0.7643         & 0.7133 \\ % & 10 \\
+        \hline
+      \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Результаты обучение моделей со стандартными параметрами \\и предварительным центрированием изображений} \label{samplewise}    
+    \begin{tabular}{|c|c|c|c|c|c|c|c|}
+        \hline    
+        Сеть          & loss   & precision & recall & val\_loss & val\_precision & val\_recall \\ % & epoch  \\
+        \hline
+        Inception V3  & 0.2352 & 0.9176    & 0.9106 & 0.2737   & 0.7884        & 0.7700 \\ % & 10 \\
+        \hline
+        ResNet-50     & 0.3353  & 0.8848   & 0.8705 & 0.9311   & 0.6537        & 0.6167 \\ % & 8  \\
+        \hline
+        DenseNet-201  & 0.3655  & 0.8742   & 0.8622 & 0.3539   & 0.7643        & 0.7133 \\ % & 10 \\
+        \hline
+      \end{tabular}
+\end{table}
