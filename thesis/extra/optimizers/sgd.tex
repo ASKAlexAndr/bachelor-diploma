@@ -1,0 +1,20 @@
+\begin{table}[H]
+    \centering
+    \caption{Результаты обучения сетей с оптимизатором SGD} \label{sgd}
+    \resizebox{1\textwidth}{!}{
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+            \hline  
+             \multirow{2}{*}{} & \multicolumn{3}{c|}{Inception V3}   & \multicolumn{3}{c|}{ResNet-50 V2}    & \multicolumn{3}{c|}{DenseNet-201}   \\ 
+             \cline{2-10} 
+                            & precision	    &	recall	&	f1-score &	precision  &	recall	&	f1-score &	precision	&	recall  & f1-score \\
+            \hline							
+            COVID-19	    &	0.63	    &	0.50    &	0.56	 &	0.50	   &	0.58	&	0.54     &	0.33	&	0.88	&	0.48    \\
+            \hline							
+            Normal	       	&	0.60        &	0.64	&	0.62	 &	0.56	   &	0.55	&	0.55     &	0	&	0	&	0	\\
+            \hline							
+            Pneumonia	    &	0.67	    &	0.64	&	0.65	 &	0.52	   &	0.45	&	0.48     &	0.33	&	0.11	&	0.17	\\   
+            \hline						
+          \end{tabular}
+    }
+\end{table}
+

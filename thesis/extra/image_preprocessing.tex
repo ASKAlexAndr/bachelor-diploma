@@ -5,11 +5,11 @@
         \hline    
         Сеть          & loss   & precision & recall & val\_loss & val\_precision & val\_recall \\ % & last\_epoch  \\
         \hline
-        Inception V3  & 0.3387 & 0.8860    & 0.8697 & 0.5269    & 0.7204         & 0.6700 \\ % & 10 \\
+        Inception V3  & 0.2352 & 0.9176    & 0.9106 & 0.2737   & 0.7884        & 0.7700 \\ % & 10 \\
         \hline
         ResNet-50     & 0.3242 & 0.8870    & 0.8732 & 0.2373    & 0.7354         & 0.7133 \\ % & 8  \\
         \hline
-        % DenseNet-201  & 0.3655 & 0.8742    & 0.8622 & 0.3539    & 0.7643         & 0.7133 \\ % & 10 \\
+        DenseNet-201  & 0.2742 & 0.9054    & 0.8969 & 0.3196    & 0.7560         & 0.7333 \\ % & 10 \\
         \hline
       \end{tabular}
 \end{table}
@@ -21,7 +21,7 @@
         \hline    
         Сеть          & loss   & precision & recall & val\_loss & val\_precision & val\_recall \\ % & epoch  \\
         \hline
-        Inception V3  & 0.2352 & 0.9176    & 0.9106 & 0.2737   & 0.7884        & 0.7700 \\ % & 10 \\
+        Inception V3  & 0.3387 & 0.8860    & 0.8697 & 0.5269    & 0.7204         & 0.6700 \\ % & 10 \\
         \hline
         ResNet-50     & 0.3353  & 0.8848   & 0.8705 & 0.9311   & 0.6537        & 0.6167 \\ % & 8  \\
         \hline
@@ -29,3 +29,19 @@
         \hline
       \end{tabular}
 \end{table}
+
+
+% Confusion Matrix
+% [[12 43 45]
+%  [10 57 33]
+%  [14 51 35]]
+% Classification Report
+%               precision    recall  f1-score   support
+
+%       normal       0.33      0.12      0.18       100
+%    pneumonia       0.38      0.57      0.45       100
+%     COVID-19       0.31      0.35      0.33       100
+
+%     accuracy                           0.35       300
+%    macro avg       0.34      0.35      0.32       300
+% weighted avg       0.34      0.35      0.32       300

@@ -1,0 +1,52 @@
+\SetAlgorithmName{Алгоритм}{Список алгоритмов}{} % Название на русском
+\SetAlgoCaptionSeparator{.} % Отделяем название алгоритма от его номера точкой
+%\SetAlgoLined % Вертикальные линии, соединяющие начало и конец блока
+\DontPrintSemicolon % Не печатать точку с запятой
+\SetKwProg{Proc}{Procedure}{}{end} % Команда для процедуры
+\SetKwProg{Fn}{Function}{}{end} % Команда для функции
+% Описание входных и выходных данных
+\SetKwInOut{Input}{Вход}
+\SetKwInOut{Output}{Выход}
+% \SetKwFor{For}{for}{endfor} % Создаем цикл do-while
+\SetKwBlock{Loop}{loop}{endloop} % Безусловный цикл
+
+\begin{algorithm}[H]
+	\caption{RMSProp}
+	\label{alg:rms}
+	\SetKwFunction{RMSProp}{RMSProp}
+	\BlankLine
+	\Input{ Начальное значение $x_1$, параметр $\beta_2 \in [0,1)$, шаг $\alpha$ }
+	\BlankLine
+	\Fn{\RMSProp{$x_1, \beta_2, \alpha, \xi$}}{
+      $v_0 = 0$;
+
+      \For{$t = 1, 2, \ldots$}{
+            $g_t = \nabla f(x_t)$\\
+            $v_t = \beta_2 v_{t-1} + (1-\beta_2)(g_t^2 + \xi^1_d )$\\
+            $V_t = \text{diag}(v_t)$\\
+            $x_{t+1} = x_{t} - \alpha V_t^{-\frac 1 2} g_t$
+      }
+	}
+\end{algorithm}
+\vspace{1em}
+\begin{algorithm}[H]
+	\caption{Adam} 
+	\label{alg:adam}
+	\SetKwFunction{Adam}{Adam}
+	\BlankLine
+	\Input{Начальное значение $x_1$, параметры $\beta_1, \beta_2 \in [0,1)$, массив шагов $\{ \alpha_t\}_{t=1,2..}$}
+	\BlankLine
+	\Fn{\Adam{$x_1, \beta_1, \beta_2, \alpha, \xi$}}{
+      $v_0 = 0$;
+      $m_0 = 0$;
+
+      \For{$t = 1, 2, \ldots$}{
+            $g_t = \nabla f(x_t)$\\
+            $m_t = \beta_1 m_{t-1} + (1-\beta_1)g_t$\\
+            $v_t = \beta_2 v_{t-1} + (1-\beta_2)g_t^2$\\
+            $V_t = \text{diag}(v_t)$\\
+            $x_{t+1} = x_{t} - \alpha_t \Big( V_t^{\frac 1 2} + \text{diag} (\xi^1_d) \Big)^{-1} m_t$
+      }
+	}
+\end{algorithm}
+
