@@ -78,13 +78,22 @@
 \usepackage[labelformat=empty, labelsep=none]{subcaption}
 \newcommand{\addthreeimghere}[8]{ % Вставка трех рисунков
     \begin{figure}[H]   
-        \centering    
-        \subcaptionbox{#2}{\includegraphics[width=.3\textwidth]{#1}}   
-        % \hfill
-        \subcaptionbox{#4}{\includegraphics[width=.3\textwidth]{#3}}
-        % \hfill
-        \subcaptionbox{#6}{\includegraphics[width=.3\textwidth]{#5}}
+				\centering    				
         \caption{#7}
         \label{#8}
+        \subcaptionbox{#2}{\includegraphics[width=.2\textwidth]{#1}}   
+        % \hfill
+        \subcaptionbox{#4}{\includegraphics[width=.2\textwidth]{#3}}
+        % \hfill
+        \subcaptionbox{#6}{\includegraphics[width=.2\textwidth]{#5}}
     \end{figure}
 }
+
+
+% Формат подрисуночных надписей
+\RequirePackage{caption}
+\DeclareCaptionLabelSeparator{deffis}{ -- } % Разделитель
+\DeclareCaptionLabelFormat{rtable}{#1}
+% \captionsetup[figure]{justification=centering, labelsep=deffis, labelfont=bf, format=plain} % Подпись рисунка по центру
+\captionsetup[table]{justification=centerlast, textfont=bf, labelformat=rtable, position=above, margin=0em} 
+\addto\captionsrussian{\renewcommand{\figurename}{Рис.}} % Имя фигуры

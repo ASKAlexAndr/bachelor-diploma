@@ -1,0 +1,17 @@
+\begin{table}[H]
+  \centering
+  \caption{Популярные функции потерь} \label{loss_funcs}
+  \begin{tabular}{|c|c|}
+    \hline    
+    \hyperlink{name}{Название} & \hyperlink{func}{Функция}\\
+    \hline
+    Средняя квадратическая ошибка & $E=\frac{1}{N}\displaystyle\sum\limits_{i=1}^{n}(y_i - x_i)^2$\\
+    \hline
+    Средняя абсолютная ошибка & $E=\frac{1}{N}\displaystyle\sum\limits_{i=1}^{n}|y_i - x_i|$ \\
+    \hline
+    Верхняя граница & $E=\frac{1}{N}\displaystyle\sum\limits_{i=1}^{n}\max(1-x_i, y_i, 0)$ \\
+    \hline
+    \textbf{Категориальная перекрестная энтропия} & $E=-\displaystyle\sum\limits_{i=1}^{n}(x_i \cdot log(y_i))$ \\
+    \hline
+  \end{tabular}
+\end{table}

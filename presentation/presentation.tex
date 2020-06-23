@@ -13,7 +13,7 @@
 
 \date{16.06.2020}
 
-\input{preamble} % Подключаем преамбулу
+\input{preamble} 
 
 \begin{document}
 \maketitle
@@ -43,40 +43,120 @@
 
 \begin{frame}{Задача диагностики COVID-19}
     \addthreeimghere{xray-normal}{Норма}{xray-pneumonia}{Пневмония}{xray-covid}{COVID-19}{Рентгеновские снимки грудных клеток}{xrays}
+    \begin{columns}[T]
+        \begin{column}{.8\paperwidth}            
+            Всего было собрано 14 197 cнимков, из них 8 066 здоровых пациентов, 5 558 с пневмонией и 573 с COVID-19. По 100 изображений каждого класса было отобрано для валидации обучения.    
+        \end{column}
+    \end{columns}  
 \end{frame}
 
-\begin{frame}{Обучение сетей}
+\begin{frame}{Оценка качества}
+    Для оценки качества работы алгоритмов использовались следующие метрики:
+    \begin{itemize}
+        \item Precision: \[P = \frac{TP}{TP+FP}\]
+        \item Recall: \[R=\frac{TP}{TP+FN}\] 
+        \item F1-мера: \[F1=2 \cdot \frac{P \cdot R}{P+R}\] 
+        % \item Accuracy: \[A=\frac{TP+TN}{TP+TN+FP+FN}\] 
+    \end{itemize}    
+    где TP - количество истинно-положительных, TN - истинно-отрицательных, 
+    % FP - ложно-положительных, 
+    FN - ложно-отрицательных ответов.
+\end{frame}
+
+\begin{frame}{Предварительная обработка изображений}
+    Предварительная обработка входных данных может существенно повлиять на обучение моделей. В рамках исследования рассматривались следующие варианты обработки изображений:
+    \begin{itemize}    
+        \item Масштабирование - приведение всех значений в изображении к диапазону [0,1].
+        \item Центрирование среднего значения изображения в 0 и нормализация среднеквадратичного отклонения в 1.
+    \end{itemize}    
+\end{frame}
+
+\begin{frame}{Предварительная обработка изображений}
+    \input{extra/image_preprocessing}
+\end{frame}
+
+\begin{frame}{Функции потерь}
+    \input{extra/loss-functions.tex}
     \begin{columns}[T]
-        \begin{column}{.4\paperwidth}
-            \begin{figure}
-                \centering
-                \includegraphics[width=\textwidth]{train_accuracy.pdf} 
-                \caption{Обучение}
-            \end{figure}            
-        \end{column}
-        \begin{column}{.4\paperwidth}
-            \begin{figure}
-                \centering                
-                \includegraphics[width=\textwidth]{val_accuracy.pdf}
-                \caption{Тестирование}
-            \end{figure} 
+        \begin{column}{.8\paperwidth}
+            $y_i$ – ожидаемое значение i-го нейрона, $x_i$ – полученное значение i-го нейрона, n – количество выходных нейронов.
         \end{column}
     \end{columns}   
 \end{frame}
-\begin{frame}{Заключение}
-    Итоги:\\
-    \begin{itemize}
-        \item Глубокое обучение эффективно справляется с задачей классификации изображений. 
-        \item Современные модели нейронных сетей обладают большим потенциалом для .
-        \item Разработаны и обучены модели для диагностики COVID-19.
-    \end{itemize}
 
-    \vspace{2em}    
-    Что дальше?
+\begin{frame}{Выбор оптимизатора}
+    \begin{columns}[T]
+        \begin{column}{.3\paperwidth}
+            Параметры:
+            \begin{itemize}
+                \item количество эпох: 10
+                \item размер пакета: 8 
+                \item Функция потерь: категориальная перекрестная энтропия 
+                \item размер входов: 500x500
+            \end{itemize}
+        \end{column}
+        \begin{column}{.2\paperwidth}
+            Модели:            
+            \begin{itemize}
+                \item Inception V3
+                \item ResNet-50 V2
+                \item DenseNet-201
+            \end{itemize} 
+        \end{column}
+        \begin{column}{.3\paperwidth}
+            Оптимизаторы:
+            \begin{itemize}
+                \item SGD - Стохастический градиентный спуск
+                \item RMSprop
+                \item Adam
+            \end{itemize} 
+        \end{column}
+    \end{columns}    
+\end{frame}
+
+\begin{frame}{Результаты}
+    
+    % \begin{columns}[T]
+    %     \begin{column}{.2\paperwidth}
+            \begin{itemize}
+                \item Adam:   \input{extra/optimizers/adam.tex}
+                \item RMSprop: \input{extra/optimizers/rms.tex}
+                \item SGD:    \input{extra/optimizers/sgd.tex}    
+            \end{itemize}
+        % \end{column}
+        % \begin{column}{.8\paperwidth}
+            
+          
+           
+    %     \end{column}
+    % \end{columns}   
+\end{frame}
+
+% \begin{frame}{Обучение сетей}
+%     \begin{columns}[T]
+%         \begin{column}{.4\paperwidth}
+%             \begin{figure}
+%                 \centering
+%                 \includegraphics[width=\textwidth]{train_accuracy.pdf} 
+%                 \caption{Обучение}
+%             \end{figure}            
+%         \end{column}
+%         \begin{column}{.4\paperwidth}
+%             \begin{figure}
+%                 \centering                
+%                 \includegraphics[width=\textwidth]{val_accuracy.pdf}
+%                 \caption{Тестирование}
+%             \end{figure} 
+%         \end{column}
+%     \end{columns}   
+% \end{frame}
+\begin{frame}{Заключение}
+    \textbf{Итоги}:\\
     \begin{itemize}
-        \item Адаптировать модели для задачи.
-        \item Увеличить базу данных и повысить длительность обучения.
-        \item Проанализировать работу сетей по другим метрикам.
+        \item Собрана база рентгеновских снимков здоровых пациентов и пациентов с Covid-19 и пневмонией.
+        \item Проведен анализ вариантов предварительной обработки данных для решения данной задачи.
+        \item Разработаны и обучены модели Inception, ResNet и DenseNet для диагностики COVID-19.
+        \item Лучшие результаты показала сеть Inception V3 вместе с оптимизатором SGD. 
     \end{itemize}
 \end{frame}
 \begin{frame}
