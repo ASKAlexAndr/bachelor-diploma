@@ -76,8 +76,8 @@
 \begin{frame}{Предварительная обработка изображений}
     Способы предварительной обработки:
     \begin{itemize}    
-        \item Масштабирование - приведение всех значений в изображении к диапазону [0,1]
-        \item Центрирование среднего значения изображения в 0 и нормализация среднеквадратичного отклонения к 1
+        \item \textbf{Масштабирование} - приведение всех значений в изображении к диапазону [0,1]
+        \item \textbf{Центрирование} среднего значения изображения в 0 и нормализация среднеквадратичного отклонения к 1
     \end{itemize}    
     Модели:
     \begin{itemize}
@@ -85,7 +85,7 @@
         \item \textbf{ResNet-50}, размерность входного слоя: 224x224
         \item \textbf{DenseNet-201}, размерность входного слоя:  224x224
     \end{itemize} 
-    Обучение всех моделей проходило по 10 эпох, размер одного пакета - 16 изображений. В качестве функции потерь использовалась категориальная перекрестная энтропия, в качестве оптимизатора - Адам. 
+    Обучение всех моделей проходило по \textbf{10 эпох}, размер одного пакета - \textbf{16 изображений}. В качестве функции потерь использовалась \textbf{категориальная перекрестная энтропия}, в качестве оптимизатора - \textbf{Adam}. 
 \end{frame}
 
 \begin{frame}{Предварительная обработка изображений}
@@ -95,7 +95,7 @@
 \begin{frame}{Выбор оптимизатора}
     \begin{columns}[T]
         \begin{column}{.3\paperwidth}
-            Параметры:
+            \textbf{Параметры:}
             \begin{itemize}
                 \item количество эпох: 10
                 \item размер пакета: 8 
@@ -104,7 +104,7 @@
             \end{itemize}
         \end{column}
         \begin{column}{.2\paperwidth}
-            Модели:            
+            \textbf{Модели:}            
             \begin{itemize}
                 \item Inception V3
                 \item ResNet-50 V2
@@ -112,7 +112,7 @@
             \end{itemize} 
         \end{column}
         \begin{column}{.3\paperwidth}
-            Оптимизаторы:
+            \textbf{Оптимизаторы:}
             \begin{itemize}
                 \item SGD - Стохастический градиентный спуск
                 \item RMSprop
@@ -127,9 +127,9 @@
     % \begin{columns}[T]
     %     \begin{column}{.2\paperwidth}
             \begin{itemize}
-                \item Adam:   \input{extra/optimizers/adam.tex}
-                \item RMSprop: \input{extra/optimizers/rms.tex}
-                \item SGD:    \input{extra/optimizers/sgd.tex}    
+                \item \textbf{Adam:}   \input{extra/optimizers/adam.tex}
+                \item \textbf{RMSprop:} \input{extra/optimizers/rms.tex}
+                \item \textbf{SGD:}    \input{extra/optimizers/sgd.tex}    
             \end{itemize}
         % \end{column}
         % \begin{column}{.8\paperwidth}
