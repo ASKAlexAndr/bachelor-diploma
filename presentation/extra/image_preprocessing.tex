@@ -3,29 +3,29 @@
     \caption{Результаты обучение моделей с предварительным масштабированием значений} \label{rescale}
     \begin{tabular}{|c|c|c|c|c|c|c|c|}
         \hline    
-        Сеть          & loss   & precision & recall & val\_loss & val\_precision & val\_recall \\ % & last\_epoch  \\
+        Сеть          & loss   & precision & recall &\textbf{val\_loss} & \textbf{val\_precision} & \textbf{val\_recall} \\ % & last\_epoch  \\
         \hline
-        Inception V3  & 0.2352 & 0.9176    & 0.9106 & 0.2737   & \color{red}\textbf{0.7884}        & \color{red}\textbf{0.7700} \\ % & 10 \\
+        Inception V3  & 0.2352 & 0.9176    & 0.9106 & \textbf{0.2737}   & \color{red}\textbf{0.7884}        & \color{red}\textbf{0.7700} \\ % & 10 \\
         \hline
-        ResNet-50     & 0.3242 & 0.8870    & 0.8732 & \color{red}\textbf{0.2373}    & 0.7354         & 0.7133 \\ % & 8  \\
+        ResNet-50     & 0.3242 & 0.8870    & 0.8732 & \color{red}\textbf{0.2373}    & \textbf{0.7354}         & \textbf{0.7133} \\ % & 8  \\
         \hline
-        DenseNet-201  & 0.2742 & 0.9054    & 0.8969 & 0.3196    & 0.7560         & 0.7333 \\ % & 10 \\
+        DenseNet-201  & 0.2742 & 0.9054    & 0.8969 & \textbf{0.3196}    & \textbf{0.7560}         & \textbf{0.7333} \\ % & 10 \\
         \hline
       \end{tabular}
 \end{table}
 
 \begin{table}[H]
     \centering
-    \caption{Результаты обучение моделей с предварительным центрированием значений} \label{samplewise}    
+    \caption{Результаты обучение моделей с предварительной нормализацией значений} \label{samplewise}    
     \begin{tabular}{|c|c|c|c|c|c|c|c|}
         \hline    
-        Сеть          & loss   & precision & recall & val\_loss & val\_precision & val\_recall \\ % & epoch  \\
+        Сеть          & loss   & precision & recall & \textbf{val\_loss} & \textbf{val\_precision} & \textbf{val\_recall} \\ % & epoch  \\
         \hline
-        Inception V3  & 0.3387 & 0.8860    & 0.8697 & 0.5269    & 0.7204         & 0.6700 \\ % & 10 \\
+        Inception V3  & 0.3387 & 0.8860    & 0.8697 & \textbf{0.5269}    & \textbf{0.7204}         & \textbf{0.6700} \\ % & 10 \\
         \hline
-        ResNet-50     & 0.3353  & 0.8848   & 0.8705 & 0.9311   & 0.6537        & 0.6167 \\ % & 8  \\
+        ResNet-50     & 0.3353  & 0.8848   & 0.8705 & \textbf{0.9311}   & \textbf{0.6537}        & \textbf{0.6167} \\ % & 8  \\
         \hline
-        DenseNet-201  & 0.3655  & 0.8742   & 0.8622 & 0.3539   & 0.7643        & 0.7133 \\ % & 10 \\
+        DenseNet-201  & 0.3655  & 0.8742   & 0.8622 & \textbf{0.3539}   & \textbf{0.7643}        & \textbf{0.7133} \\ % & 10 \\
         \hline
       \end{tabular}
 \end{table}
